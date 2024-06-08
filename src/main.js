@@ -2,6 +2,9 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css"
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+//------------------Simple Light box----------------
+
+const lightbox = new SimpleLightbox(".gallery a", { captionDelay: 250, captionsData: "alt" });
 
 import { getImages } from './js/pixabay-api.js';
 import { imageTamplate } from './js/render-functions.js';
@@ -20,6 +23,7 @@ form.addEventListener('input', (event) => {
 form.addEventListener('submit', onSubmit);
 function onSubmit(event) {
     event.preventDefault();
+    imageGallery.innerHTML = '';
     showLoader();
 
     if (imageName === '') {
@@ -29,7 +33,6 @@ function onSubmit(event) {
     getImages(imageName)
     .then(data => {
         if (data.hits.length === 0) {
-        imageGallery.innerHTML = '';
         return iziToast.error({ ...errorParams });
         }
 
@@ -64,6 +67,3 @@ const errorParams = {
     message: 'Sorry, there are no images matching your search query. Please try again!',
 }
 
-//------------------Simple Light box----------------
-
-let lightbox = new SimpleLightbox(".gallery a", { captionDelay: 250, captionsData: "alt" });
