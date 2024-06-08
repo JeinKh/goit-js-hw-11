@@ -71,22 +71,24 @@ body {
 }
 
 .gallery {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   width: 1440px;
   min-height: 200px;
-  padding: 24px 156px;
-  display: grid;
-  grid-template-columns: repeat(3, 360px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* padding: 24px 156px; */
+  /* display: grid;
+  grid-template-columns: repeat(3, 360px); */
   gap: 24px;
   background-color: #ffffff;
-  border-radius: 8px;
+  list-style: none;
 }
 
 .gallery-image {
   width: 360px;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
   border: 1px solid #808080;
 }
 
@@ -112,8 +114,6 @@ body {
   position: absolute;
   bottom: 1px;
   background-color: #fff;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   padding: 4px 25px 4px 20px;
   width: 357px;
   height: 48px;
